@@ -14,7 +14,14 @@ public class Projectile : MonoBehaviour
     public float minForce=12f,maxForce=15f;
 
     public float life = 5f;
+    private float seconds;
 
+    void update()
+    {
+        float timer = 0.0f;
+        timer += Time.deltaTime ;
+         seconds = timer % 60;
+    }
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
@@ -49,7 +56,12 @@ public class Projectile : MonoBehaviour
             spikey.GetComponent<Rigidbody>().AddForce(spikey.transform.up * force, ForceMode.Impulse);
             spikey.GetComponent<Rigidbody>().AddForce(spikey.transform.forward*-1 * 2, ForceMode.Impulse);
 
+            
+
             yield return new WaitForSeconds(Random.Range(minDelay,maxDelay));
+            
+            FindObjectOfType<Enemy>().Shoot(spikey);
+           
         }
     }
 

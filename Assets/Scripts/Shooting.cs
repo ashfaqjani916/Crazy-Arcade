@@ -8,7 +8,6 @@ public class Shooting : MonoBehaviour
     Camera cam;
     public LayerMask mask;
     
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +18,8 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         //draw a ray
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 100f;
@@ -35,6 +36,8 @@ public class Shooting : MonoBehaviour
                 GameObject hitObject = hitinfo.transform.gameObject;
                 Destroy(hitObject);
             }
+           
         }
+         
     }
 }
