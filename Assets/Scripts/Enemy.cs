@@ -29,5 +29,7 @@ public class Enemy : MonoBehaviour
         Vector3 shootDirection = (cam.transform.position - pos).normalized;
         //add force rigidbody of the bullet.
         bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-1f,1f),Vector3.up) * shootDirection *40;
+
+        Destroy(bullet,5f);
     }
 }

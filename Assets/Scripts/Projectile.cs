@@ -55,11 +55,9 @@ public class Projectile : MonoBehaviour
             float force = Random.Range(minForce,maxForce);
             spikey.GetComponent<Rigidbody>().AddForce(spikey.transform.up * force, ForceMode.Impulse);
             spikey.GetComponent<Rigidbody>().AddForce(spikey.transform.forward*-1 * 2, ForceMode.Impulse);
-
-            
-
             yield return new WaitForSeconds(Random.Range(minDelay,maxDelay));
             
+            if(spikey != null)
             FindObjectOfType<Enemy>().Shoot(spikey);
            
         }
